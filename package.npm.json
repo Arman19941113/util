@@ -1,26 +1,23 @@
 {
-  "name": "util",
+  "name": "@armantang/util",
   "version": "0.0.0",
-  "description": "",
+  "description": "Some useful utilities",
   "keywords": [],
-  "homepage": "",
+  "homepage": "https://github.com/Arman19941113/util#readme",
   "license": "MIT",
-  "author": "",
+  "author": "Arman Tang",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Arman19941113/util"
   },
   "files": [
     "dist"
   ],
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.esm.js",
   "exports": {
     ".": "./dist/index.esm.js",
     "./*": "./*"
   },
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "dependencies": {
-    "vue": "^3.0.0"
-  }
+  "types": "dist/index.d.ts"
 }
