@@ -1,5 +1,5 @@
 import { sleep } from './util'
-import { throttle  } from '../src'
+import { throttle } from '../src'
 
 describe('throttle', () => {
   test('throttle should work', async () => {
@@ -10,17 +10,16 @@ describe('throttle', () => {
     listener()
     listener()
 
-    sleep(10).then(() => {
-      listener()
-      expect(calledTimes).toBe(0)
-    })
-    sleep(20).then(() => {
-      listener()
-      expect(calledTimes).toBe(1)
-    })
-    sleep(60).then(() => {
-      expect(calledTimes).toBe(2)
-    })
+    await sleep(10)
+    listener()
+    expect(calledTimes).toBe(0)
+
+    await sleep(10)
+    listener()
+    expect(calledTimes).toBe(1)
+
+    await sleep(20)
+    expect(calledTimes).toBe(2)
   })
 
   test('throttle listener argument should work', async () => {
