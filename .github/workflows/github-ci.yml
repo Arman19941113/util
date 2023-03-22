@@ -27,5 +27,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Set timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "Asia/Shanghai"
+          timezoneMacos: "Asia/Shanghai"
+          timezoneWindows: "China Standard Time"
+
       - name: Run test
         run: pnpm run test-coverage
