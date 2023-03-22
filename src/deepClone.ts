@@ -1,7 +1,8 @@
 export type CloneObj = { [key: string | number | symbol]: CloneVal }
 export type CloneArr = Array<CloneVal>
-export type CloneVal = CloneObj | CloneArr | string | number | boolean | null | any
+export type CloneVal = CloneObj | CloneArr | string | number | boolean | symbol | null
 
+// Support json data types and symbol
 export function deepClone<T extends CloneVal> (val: T): T {
   if (typeof val !== 'object' || val === null) return val
 
@@ -10,7 +11,7 @@ export function deepClone<T extends CloneVal> (val: T): T {
   }
 
   const obj: CloneObj = {}
-  for (const key in val) {
+  for (const key of Reflect.ownKeys(val)) {
     obj[key] = deepClone(val[key])
   }
   return obj as T
